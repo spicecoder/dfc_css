@@ -1,0 +1,336 @@
+<html>
+<head>
+    <title>CSS</title>
+  <!--- dsplay flex necessary for nesting postion control
+   
+      with justify-content and align-items;
+    differnece between block and inline for display is an important thing 
+    to keep in mind ; inline elements can not have its own width and height
+    blocks have their own width ,height ;new block always starts a new line.
+    So a componenet can have flow,context and domain by having a tree like 
+    structure as below:
+    start with domain(the first container within which everything goes,so the 
+    contents are left aligned), then
+    we have a flow which is a block-within a flow ,flow has two blocks,top one is: flow controls are on inline left 
+    and flow content is inline right ;
+    the flow has bottom block which has context-propagations as a sequence of blocks
+    each of these blocks can expand into similar blocks as its parent 
+https://stackabuse.com/javascript-how-to-insert-elements-into-a-specific-index-of-an-array/
+<i class="fa-solid fa-plus"></i>
+<i class="fa-light fa-pen"></i>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">! <img src="https://img.icons8.com/office/16/000000/add-image.png"/>
+
+*******
+we shall hkeep the hieght of div.Context to 200 when anchor,product,group,user not 
+included(area A)for display. Else it will increase to 300
+
+dependant proportions :
+div.Context: height ,width
+div.Contextprogression : width;
+div.Contextnode: width ;
+div.anchorednode: width;  
+
+
+
+
+--> 
+    <style>
+       
+        div.Context{
+            background-color: #900001;
+            height:400px; 
+            width: 600px;
+            padding: 4px;
+            display:grid;
+            grid-template-columns: 25% 25% 25% 25%;
+            grid-template-rows: 20% 20% 20% 40%;
+            grid-template-areas:"A A A A" "D D D D" "F F F F"  "N N N N";
+      
+        }
+        div.Anchors{background-color: #7a95b0;
+            width:100%;
+            height:100%;
+            display:flex;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            grid-area: A;
+            margin:2px;}
+        div.Domain{background-color: #7a95b0;
+            width:100%;
+            height:100%;
+            display:flex;
+            color: white;
+            justify-content: left;
+            align-items: center;
+            grid-area: D;}
+        div.Flow{
+            color: white;
+            background-color:  #1d3e6e ;
+            width:100%;
+            height:100%;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            grid-area: F;
+            margin:2px;
+        }
+       
+        div.textcontainer{ 
+            padding:2px; 
+            color:white; 
+            height:18px;
+        } 
+        div.anchorednode {
+            display:grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 20% 80%;
+            grid-template-areas: "AT" "AN"  ;
+             width: 180px;
+             margin:2px;
+             border: 3px solid #1d3e6e;
+             align-items: center; 
+            }
+        div.tool {
+             display: flex;
+             flex-wrap: nowrap;
+             overflow-x: auto;
+             background-color: #8db046;
+             height:15px;
+             width: 30px;
+             padding:5px;
+             border:0px;
+             align-self: flex-end;
+              
+        }
+        div.tools_panel {
+             display: flex;
+             overflow-x: auto;
+             margin: 4px;
+             background-color: #7a95b0;
+             width:100px;
+             height:18px;
+             padding:2px;
+             align-content: center;
+             border:0px;
+             
+           
+              
+        }
+        div.Contextprogression {
+             display: flex;
+             flex-wrap: nowrap;
+             overflow-x: auto;
+             background-color: #8db046;
+             width: 600px;
+             grid-area:N
+        }
+        div.contextnode {
+            display:grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 20% 60% 20%;
+            grid-template-areas: "T" "C"  "P";;
+            width: 180px;
+           margin:2px;
+             border: 3px solid #1d3e6e;
+             align-items: center; 
+            }
+       </style>
+    </head>
+    <body>
+    <div class="Context">
+        <div class="Anchors"   >
+            <div class="anchorednode" >
+            <div class="d_textcontainer">
+               owner 
+            </div>
+            <div class="d_textcontainer">
+              tiger king  
+             </div>
+            </div>
+            <div class="anchorednode" >
+                <div class="d_textcontainer">
+                 product anchor
+                </div>
+                <div class="d_textcontainer">
+               retail banking  
+                </div>
+                </div>
+                <div class="anchorednode" >
+                    <div class="d_textcontainer">
+                        domain anchor
+                    </div>  
+              <div class="d_textcontainer">
+                 services   
+              </div>
+              </div>
+              <div class="anchorednode" >
+              <div class="d_textcontainer">
+                  flow anchor 
+              </div>
+              <div class="d_textcontainer">
+                  entities used 
+            </div>
+              </div>
+              <div class="anchorednode" >
+              <div class="d_textcontainer">
+                  entity anchor 
+              </div>
+              <div class="d_textcontainer">
+                    attributes 
+            </div>
+            </div>
+              
+        
+      </div>  
+        <div class="Domain" >
+            <div class="d_textcontainer">
+                domain is Bathroom    
+            </div>
+            <div  class="tools_panel">
+               <div class="tool"><img src="add.png" height=12px /> </div><div class="tool"><img src="del.png"height=12px  /> </div><div class="tool"><img src="ed.png" height=12px  /> </div><div class="tool"><img src="exe.png" height=12px  /> </div>
+            </div>
+      
+         </div>
+        <div class="Flow">
+        <div class="textcontainer" > Flow is have shower </div>
+        <div  class="tools_panel">
+            <div class="tool"><img src="add.png" height=12px /> </div><div class="tool"><img src="del.png"height=12px  /> </div><div class="tool"><img src="ed.png" height=12px  /> </div><div class="tool"><img src="exe.png" height=12px  /> </div>
+         </div>
+   
+        </div>
+        <div class="Contextprogression">
+            <div class="contextnode">
+                <div class="textcontainer">
+                Node is 1  
+                </div>
+                <div></div> 
+                <div  class="tools_panel">
+                    <div class="tool"><img src="add.png" height=12px /> </div><div class="tool"><img src="del.png"height=12px  /> </div><div class="tool"><img src="ed.png" height=12px  /> </div><div class="tool"><img src="exe.png" height=12px  /> </div>
+                 </div>
+            </div>
+            <div class="contextnode">
+                <div class="textcontainer">
+                    Node is 2  
+                    </div>
+                    <div></div> 
+                    <div  class="tools_panel">
+                        <div class="tool"><img src="add.png" height=12px /> </div><div class="tool"><img src="del.png"height=12px  /> </div><div class="tool"><img src="ed.png" height=12px  /> </div><div class="tool"><img src="exe.png" height=12px  /> </div>
+                     </div>   
+            </div>
+            <div class="contextnode">
+                <div class="textcontainer">
+                    Node is 3  
+                    </div>
+                <div></div>    
+                 <div  class="tools_panel">
+                     <div class="tool"><img src="add.png" height=12px /> </div><div class="tool"><img src="del.png"height=12px  /> </div><div class="tool"><img src="ed.png" height=12px  /> </div><div class="tool"><img src="exe.png" height=12px  /> </div>
+                </div>  
+               
+            </div>
+            <div class="contextnode">
+                <div class="textcontainer">
+                    Node is 4  
+                    </div>
+                    <div></div>    
+                <div  class="tools_panel">
+                        <div class="tool"><img src="add.png" height=12px /> </div><div class="tool"><img src="del.png"height=12px  /> </div> <div class="tool"><img src="ed.png" height=12px  /> </div><div class="tool"><img src="exe.png" height=12px  /> </div>
+                     </div>    
+            </div>
+            <div class="contextnode">
+                <div class="textcontainer">
+                    Node is 5  
+                    </div> 
+                    <div></div> 
+                    <div  class="tools_panel">
+                        <div class="tool"><img src="add.png" height=12px /> </div><div class="tool"><img src="del.png"height=12px  /> </div><div class="tool"><img src="ed.png" height=12px  /> </div><div class="tool"><img src="exe.png" height=12px  /> </div>
+                     </div>    
+            </div>
+            <div class="contextnode">
+                <div class="textcontainer">
+                    Node is 2  
+                    </div>
+                    <div></div> 
+                    <div  class="tools_panel">
+                        <div class="tool"><img src="add.png" height=12px /> </div><div class="tool"><img src="del.png"height=12px  /> </div><div class="tool"><img src="ed.png" height=12px  /> </div><div class="tool"><img src="exe.png" height=12px  /> </div>
+                     </div>   
+            </div>
+            <div class="contextnode">
+                <div class="textcontainer">
+                    Node is 3  
+                    </div>
+                <div></div>    
+                 <div  class="tools_panel">
+                     <div class="tool"><img src="add.png" height=12px /> </div><div class="tool"><img src="del.png"height=12px  /> </div><div class="tool"><img src="ed.png" height=12px  /> </div><div class="tool"><img src="exe.png" height=12px  /> </div>
+                </div>  
+               
+            </div>
+            <div class="contextnode">
+                <div class="textcontainer">
+                    Node is 4  
+                    </div>
+                    <div></div>    
+                <div  class="tools_panel">
+                        <div class="tool"><img src="add.png" height=12px /> </div><div class="tool"><img src="del.png"height=12px  /> </div> <div class="tool"><img src="ed.png" height=12px  /> </div><div class="tool"><img src="exe.png" height=12px  /> </div>
+                     </div>    
+            </div>
+            <div class="contextnode">
+                <div class="textcontainer">
+                    Node is 5  
+                    </div> 
+                    <div></div> 
+                    <div  class="tools_panel">
+                        <div class="tool"><img src="add.png" height=12px /> </div><div class="tool"><img src="del.png"height=12px  /> </div><div class="tool"><img src="ed.png" height=12px  /> </div><div class="tool"><img src="exe.png" height=12px  /> </div>
+                     </div>    
+            </div>
+        </div>    
+           
+              
+   <div>  
+    </body>
+</html>
+
+<!--  
+lets play with a sample DFC json 
+say we have domains kitchen, bathroom,washroom, sports,studies
+we shall study the flows as actions within these domains that links a domain
+to another;
+
+--
+p:Ordinary Lives
+an:(d:activity location,f:daily cores ,c: in  action)
+d:kitchen
+f:items in kitchen has to be washed after cooking
+c:collect items;rinse items;(washroom:)stack items in dish washer,domain urgency supplied
+f:make lunch
+c:check left over ;falafel take out for falafel day;make toast
+d:washroom
+f:stack items in dish washer
+c:stack big pots,stack small items,start machine if full or urgent; 
+f:Dry the clothes
+c:if sunny put clothes in the liners,put clothes in dryer;
+f: wash clothes
+get detergents;sort clothes by colour ; put to wash a colour pile;
+d:sports
+c:sunday hockey ,monday swimming;put clothes away;(washroom:)wash clothes
+
+d:study
+f:work-study
+c: study physics; study art; study computing;daily yoga, (bathroom:)shower
+f:skill study
+c:cloud certify;write principles
+f:make food: (kitchen:)make lunch
+d:bathroom:
+f:have shower:
+c: shave;cleanup;hair treat;skin treat; shower
+
+
+try:position:absolute;
+  right:0px;
+  top:0px; for child 
+
+}
+
+https://blog.bitsrc.io/build-a-full-featured-modal-dialog-form-with-react-651dcef6c571
+
+  -->
